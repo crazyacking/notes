@@ -1,0 +1,10 @@
+1.步骤
+ 1）创建socket套接字
+ 2）设置ip和port(sock_addr_in)，并用bind函数将其与socket套接字绑定
+ 3)监听：listen()
+ 4)处理请求：accept()
+        对于每一个请求：要么向客户端读数据(read)，要么向客户端写数据(write)
+ 5)关闭套接字
+
+
+

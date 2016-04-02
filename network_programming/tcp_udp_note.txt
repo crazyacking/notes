@@ -1,0 +1,122 @@
+1.TCP协议
+ 1）监听输入对话请求
+ 2）请求另一网络站点对话
+ 3）可靠的发送和接收数据
+ 4）湿度的关闭对话
+
+2.UDP协议
+ 1）无连接：不必先建立连接即可发送数据
+ 2）不使用TCP的端对端差错检验
+ 3）传输层功能亲全部发挥，但开销比较低
+ 4）主要用于那些不要求TCP协议的非连接型运用程序（名字服务、网络管理、视频点播和网络会议）
+
+3.socket概述：
+ linux中的网络通过socket接口实现，socket即是一种特殊的IO,他也是一种文件描述符。一个完整的socket都有一个相关描述（协议、本地地址，本地端口，远程地址，远程端口）；
+ 每个socket有一个本地的唯一socket号，由操作系统分配。
+ 网络通信的五元组:协议，本地地址，本地端口，远程地址，远程端口
+
+
+4，相关函数
+#include <sys/socket.h>
+int socket(int domain,int type,int protocol);
+ // domain : socket域：
+        AF_INET  IPv4因特网域
+        AF_INET6 IPv6英特网域
+        AF_UNIX  UNIX域
+        AF_UNSPEC 未指定
+
+5.字节序（是什么？有啥区别？） 看博客
+ 主机<----->网络
+ ip的表示：点分十进制<---->32位长整型
+
+
+5.ip地址
+通用地址格式：
+struct sockaddr
+{
+    unsigned short sa_family; // 地址族，AF_xxx （指定是ipv4还是ipv6）
+    char sa_data[14];  //地址（ip:port）,ip+port共6个字节，剩下的8个是预留字节
+};
+
+更加细分的ipv4封装:
+struct int_addr
+{
+    int_addr_t s_addr; // ipv4
+};
+
+struct sockaddr_in
+{
+    short int sin_family; // 地址族(ipv4还是ipv6)
+    unsigned short int sin_port; // 端口号
+    struct in_addr sin_addr;  // ip地址
+    unsigned char sin_zero[8];// 添0（和struct sockaddr一样大小） 把14中的后8个单独拿出来了，不用管这8个字节
+};
+
+
+6.IP地址的转换（点分十进制<------>32位无符号整形）
+Linux提供了两者之间转换的函数
+
+
+
+// 把无符号字节序转换为点分十进制
+#include <arp/inet.h>
+const char *inet_ntop(int domain,const void *addr,char *str,socklen_t size);
+//成功则返回字符串指针,出错则返回NULL
+*str就是最后的结果(点分十进制)
+
+
+int inet_pton(int domain,const char *str,void *addr);
+//将点分十进制(char *str)转换为无符号整型(void * addr)
+成功则返回1，无效格式则返回0，出错返回-1
+
+7.bind函数
+功能：将sockaddr里面的ip和端口绑定到socketfd上
+#include <sys/socket.h>
+ 1)绑定地址并在/etc/services中注册
+ int bind(int sockfd,const struct sockaddr *addr,socklen_t len);
+ 2)得到绑定的套接字地址
+ int getsockname(int sockfd,struct sockaddr *addr,socklen_t alenp);
+ 3)获取对方地址
+ int getpeername(int sockfd,struct asockaddr *addr,socklen_t *alenp);
+ 成功返回0，出错返回-1
+
+8.客户端
+// 客户端连接服务端
+#include <sys/socket.h>
+int connect(int sockfd,const struct sockaddr *addr,socklen_t len);
+成功返回0，出错返回-1
+
+9.服务端
+// 监听端口
+#include <sys/socket.h>
+int listen(int sockfd,int backlog);
+成功返回0，出错返回-1
+
+//客户端连接请求会被放在一个队列里面,accpet就负责从这个队列里面拿出一个请求
+int accept(int sockfd,struct sockaddr *addr,socklen_t len);
+
+
+另：对于UDP协议
+发送数据：
+#include <sys/socket.h>
+ssize_t send(int sockfd,const void *buf,size_t nbytes,int flags);
+ssize_t sendmsg(int sockfd,const struct msghdr *msg,int flags);
+成功则返回发送的字节数，错误返回-1
+
+struct msghdr
+{
+    void            *msg_name;  // 可选地址
+    socklen_t       msg_namelen;  // 地址大小(字节)
+    struct iovec    *msg_iov;  // I/O缓冲数组
+    int             msg_iovlen;  // 数组内的元素
+    void            *msg_constrol;  // 辅助数组
+    int             msg_flags; // 接收标记
+};
+
+接收数据：
+#include <sys/socket.h>
+ssize_t recv(int sockfd,void *buf,size_t nbytes,int flags);
+ssize_t recvfrom(int sockfd,void *buf, size_t len,int flags,struct sockaddr *addr,socklen_t *addrlen);
+ssize_t recvmsg(int sockfd,struct msghdr *msg,int flags);
+返回消息的字节数,无消息返回0，出错返回-1
+
