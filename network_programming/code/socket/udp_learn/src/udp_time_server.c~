@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <netdb.h>
+#include <memory.h>
+#include <time.h>
+
+int sockfd;
+void do_service(struct sockaddr_in cli_addr);
+void print_addr(struct sockaddr_in cli_addr);
+
+int main(int argc,char *argv[])
+{
+    if(argc<2)
+    {
+        fprintf(stderr,"usage:%s\n",strerror(errno));
+        exit(1);
+    }
+    sockfd=socket(AF_INET,SOCK_DGRAM,0);
+    if(sockfd<0)
+    {
+        fprintf(stderr,"socket:%s\n",strerror(errno));
+        exit(1);
+    }
+    
+
+    struct sockaddr_in addr;
+    memset(&addr,0,sizeof addr);
+    addr.sin_family=AF_INET;
+    addr.sin_port=htons(atoi(argv[1]));
+    addr.sin_addr.s_addr=INADDR_ANY;
+    if(bind(sockfd,(struct sockaddr*)&addr,sizeof addr)<0)
+    {
+         fprintf(stderr,"bind:%s\n",strerror(errno));
+         exit(1);
+    }
+    char res[512];
+    memset(res,0,sizeof res);
+    struct sockaddr_in cli_addr;
+    int c_len=sizeof cli_addr;
+    while(1)
+    {
+         if(recvfrom(sockfd,res,sizeof res,0,(struct sockaddr*)&cli_addr,&c_len)<0)
+         {
+             fprintf(stderr,"recvfrom:%s\n",strerror(errno));
+             continue;
+         }
+         do_service(cli_addr);
+         print_addr(cli_addr);
+
+    }
+    return 0;
+}
+
+void do_service(struct sockaddr_in cli_addr)
+{
+     print_addr(cli_addr);
+     long t=time(0);
+     char *s=ctime(&t);
+     if(sendto(sockfd,s,strlen(s),0,(struct sockaddr*)&cli_addr,sizeof cli_addr)<0)
+         fprintf(stderr,"sendto:%s\n",strerror(errno));
+}
+
+void print_addr(struct sockaddr_in cli_addr)
+{
+     char ip_addr[16];
+     unsigned short port=ntohs(cli_addr.sin_port);
+     inet_ntop(AF_INET,&cli_addr.sin_addr.s_addr,ip_addr,sizeof(cli_addr));
+     printf("client %s:%d connetc...\n",ip_addr,port);
+}

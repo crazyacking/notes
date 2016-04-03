@@ -3,20 +3,19 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
-#include <netdb.h> // socket
+#include <netdb.h>
 
-// 首先定义一个socket套接字
+// 定义一个socket套接字
 int sockfd;
 
-
-void do_service(int fd)
+void write_data(int fd)
 {
     long t=time(0); // linux时间
-    char *s=ctime(&t); // 将linux时间转为年月日时分秒
+    char *s=ctime(&t);
     write(fd,s,strlen(s));
 }
 
-void out_client(struct sockaddr_in client_addr)
+void print_client_information(struct sockaddr_in client_addr)
 {
     char ip_addr[16];
     inet_ntop(AF_INET,&client_addr.sin_addr.s_addr,ip_addr,sizeof(client_addr));
@@ -34,7 +33,7 @@ int main(int argc,char *argv[])
     // 创建一个socket套接字
     sockfd=socket(AF_INET,SOCK_STREAM,0);
     // AF_INET表示使用IPv4地址族(AF_INET6表示使用IPv6地址族)
-    // SOCK_STREAM 传的是数据流（代表tcp协议）若传递的事保温则是udp协议
+    // SOCK_STREAM是数据流（tcp协议）;若传递报文则是udp协议
     // 0由tcp决定
     if(sockfd<0)
     {
@@ -43,7 +42,7 @@ int main(int argc,char *argv[])
     }
     // 设置ip和端口号
     struct sockaddr_in addr;
-    memset(&addr,0,sizeof(addr)); // 目的：把ip地址中的后8位置为0
+    memset(&addr,0,sizeof(addr)); // 目的：把ip地址中的后8个字节置为0
     addr.sin_family=AF_INET;
 
     addr.sin_port=htons(atoi(argv[1]));// argv[1]是传入的端口地址,atio将其转为整形，htons将这个整形转为网络字节序
@@ -76,8 +75,8 @@ int main(int argc,char *argv[])
             fprintf(stderr,"accept:%s\n",strerror(errno));
             continue;
         }
-        out_client(client_addr); // 将客户端的连接信息打印出来
-        do_service(fd);//向fd中写入要传入的信息
+        print_client_information(client_addr); // 将客户端的连接信息打印出来
+        write_data(fd);//向fd中写入要传入的信息
         close(fd);
     }
 
