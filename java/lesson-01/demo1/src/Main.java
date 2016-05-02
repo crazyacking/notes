@@ -5,7 +5,6 @@ public class Main {
     }
 }
 
-
 class overload {
     void test() {
         System.out.println("No parameters");
