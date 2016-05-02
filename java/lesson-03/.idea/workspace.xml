@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ea13a37-36d7-4331-9c68-08826a690920" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="lesson-03.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +28,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+            <state relative-caret-position="382">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#63#64#0" expanded="true" />
                 <element signature="e#113#114#0" expanded="true" />
+                <element signature="e#180#181#0" expanded="true" />
+                <element signature="e#230#231#0" expanded="true" />
+                <element signature="e#297#298#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#581#582#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#698#699#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,6 +130,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -483,12 +497,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1462181901272</updated>
-      <workItem from="1462181902883" duration="56000" />
+      <workItem from="1462181902883" duration="154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56000" />
+    <option name="totallyTimeSpent" value="154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -534,11 +548,21 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        <state relative-caret-position="382">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="e#63#64#0" expanded="true" />
             <element signature="e#113#114#0" expanded="true" />
+            <element signature="e#180#181#0" expanded="true" />
+            <element signature="e#230#231#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
           </folding>
         </state>
       </provider>
