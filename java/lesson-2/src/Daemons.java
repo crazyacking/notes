@@ -38,25 +38,67 @@
 //    }
 //}
 
+//
+//public class Daemons{
+//    public static void main(String[]args){
+//        for(int i=0;i<6;++i)
+//            new Daemon("crazyacking");
+//
+//    }
+//}
+//
+//class Daemon extends Thread{
+//    private String name="Devin";
+//    public Daemon(String name){
+//        this.name=name;
+//        setDaemon(true);
+//        start();
+//    }
+//
+//    public void run(){
+//        System.out.println(this.name);
+//        return ;
+//    }
+//}
+//
+//public class Daemons{
+//    public static void main(String[] args){
+//        for(int i=0;i<5;++i){
+//            Daemon daemon = new Daemon("Devin");
+//        }
+//    }
+//}
+//
+//class Daemon extends Thread{
+//    String name="Devin";
+//    public Daemon(String name){
+//        super.setName(name);
+//        start();
+//    }
+//    public void run(){
+//        System.out.println(super.toString());
+//    }
+//    public String toString(){
+//        return getName()+getId();
+//    }
+//}
 
 public class Daemons{
-    public static void main(String[]args){
-        for(int i=0;i<6;++i)
-            new Daemon("crazyacking");
-
+    final static int MAX_THREAD=10;
+    public static void main(String[]args) throws InterruptedException {
+        for(int i=0;i<MAX_THREAD;++i)
+            new Daemon();
+        Thread.sleep(1000);
     }
 }
-
 class Daemon extends Thread{
-    private String name="Devin";
-    public Daemon(String name){
-        this.name=name;
+    public String name="your name";
+    public Daemon(){
         setDaemon(true);
         start();
     }
-
     public void run(){
-        System.out.println(this.name);
-        return ;
+        System.out.println(getName()+getId()+getPriority());
+        yield();
     }
 }
