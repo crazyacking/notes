@@ -1,0 +1,98 @@
+body{
+padding:0;
+margin:0;
+font-size:12px;
+color:#666666;}
+.cen{
+margin:0 auto;
+width:800px;}
+.topb{
+background-color:#95989E;
+margin:1px;
+padding:7px 0 4px 25px;
+height:20px;
+color:#fff;}
+.f14{
+font-size:14px;
+}
+.f16{
+font-size:14px;
+font-weight:bold;
+}
+.bb{
+border:1px solid #95989E;
+}
+.leftdi{
+width:390px;
+float:left;
+padding:25px 0 25px 0	;
+}
+a:link,a:visited{
+text-decoration:none;
+color:#333;}
+a:hover{
+text-decoration:underline;
+color:#333;}
+.hong a{
+color:#A10000;}
+.hong{
+color:#A10000;}
+.paddright{
+text-align:right;
+padding-right:15px;
+}
+.shuxian{
+border-left:1px #A10 dashed;
+float:left;
+width:1px;
+height:200px;
+margin-top:25px;}
+.h300{
+height:auto;
+}
+.zhanwei{
+height:17px;
+clear:both;}
+.h400{
+height:400px;}
+.input{
+height:17px;
+border:1px solid #666;
+width:200px;
+padding-top:3px;
+margin-left:10px;
+margin-right:10px;}
+.input2{
+border:1px solid #666;
+margin-left:10px;
+padding-bottom:3px;}
+.paddtb{
+padding:25px 0;}
+.left{
+float:left;
+padding-left:10px;
+}
+.right{
+float:right;
+padding-right:10px;}
+.kongtop{
+margin:20px 40px 10px 40px;
+border-bottom:1px solid #666;
+height:20px;
+padding-bottom:5px;}
+.paddlr{
+padding:0 40px;}
+.h40{
+height:25px;!important;
+padding-top:15px!important;}
+.h500{
+min-height:300px;}
+.w590{
+width:590px!important;
+float:left;}
+.rr{
+float:right;}
+.w220{
+width:195px;
+padding:20px 0;}
+.STYLE1 {color: #FFFFFF}

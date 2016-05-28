@@ -1,0 +1,61 @@
+.head {
+	list-style: none;
+	float: left;
+	width: auto;
+	padding: 8px 40px 2px 40px;
+	color: #878787;
+	height: 20px;
+	cursor: pointer;
+}
+
+.selected {
+	background-color: #EAFFB9;
+	color: #297404 !important;
+	height: 20px;
+}
+
+.off {
+	background-color: #EAFFB9;
+	padding: 20px;
+	clear: both;
+	width: 100%;
+	float: left;
+}
+
+.mm {
+	height: 30px;
+}
+
+.fff {
+	background-color: #fff;
+	width: 100px;
+	padding: 15px;
+	float: left;
+	margin-right: 18px;
+}
+
+.shanchu {
+	text-decoration: line-through;
+	font-size: 12px;
+}
+
+.hong1 {
+	color: #650A02;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.timu {
+	line-height: 18px;
+	font-size: 12px;
+	padding: 6px 0 4px 0;
+}
+
+.tongji {
+	padding: 4px 0
+}
+
+.xiao {
+	font-size: 14px;
+}

@@ -1,0 +1,12 @@
+网上书店系统，就是JSP的多层模式，没有用ssh框架 本系统软件版本
+
+Myeclipse8.5+Tomcat6.0+数据库：SQL Server2008
+
+数据库端口为：1433（默认端口号）
+数据库登录名：sa（默认名字）
+数据库密码：sql2008安装时设置的，本系统为“123456”
+
+系统关于数据库参数配置的类位置为：com.ht.db.Config
+
+登录为：http://localhost:8080/bookCity2/index.jsp
+

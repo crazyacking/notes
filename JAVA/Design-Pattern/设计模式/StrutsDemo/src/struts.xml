@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+   <struts>
+   	<package name="default" extends="struts-default">
+        <action name="struts" class="org.action.StrutsAction">
+	   		<result name="success">/welcome.jsp</result>
+	   		<result name="error">/hello.jsp</result>
+   	   </action>
+   	   
+   	   <action name="strutsValidate" class="org.action.StrutsAction">
+	   		<result name="success">/welcome.jsp</result>
+	   		<result name="error">/hello1.jsp</result>
+	   		<result name="input">/hello1.jsp</result>
+   	   </action>
+   	   
+   	   <action name="strutsValidation" class="org.action.StrutsValidation">
+	   		<result name="success">/welcome.jsp</result>
+	   		<result name="error">/hello2.jsp</result>
+	   		<result name="input">/hello2.jsp</result>
+   	   </action>
+   	   
+   	   <action name="strutsValidationByMethod" class="org.action.StrutsValidation" method="testValidate">
+	   		<result name="success">/welcome.jsp</result>
+	   		<result name="error">/hello3.jsp</result>
+	   		<result name="input">/hello3.jsp</result>
+   	   </action>
+   	</package>
+   </struts>

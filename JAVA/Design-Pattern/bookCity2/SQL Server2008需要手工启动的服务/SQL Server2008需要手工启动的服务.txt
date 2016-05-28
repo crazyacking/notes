@@ -1,0 +1,15 @@
+SQL Server2008需要手工启动的服务（即平常可以停掉的服务）
+
+默认避开的服务（有以下3个服务，就能正常运行）：
+1、SQL Server VSS Writer：服务命令名“SQLWriter”
+2、SQL Server(MSSQLSERVER)：服务器运行核心服务，服务命令名“MSSQLSERVER”
+3、SQL Full-text Filter Daemon Launcher(MSSQLSERVER)：服务命令名“MSSQLFDLauncher”
+可以选开的服务：
+4、SQL Server代理(MSSQLSERVER)：服务命令名“SQLSERVERAGENT”
+5、SQL Server Browser：服务命令名“SQLBrowser”
+
+
+SQL Server2008
+用户名：sa
+密码：123456
+端口号：1433（SQL Server2008默认端口号）

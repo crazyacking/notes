@@ -1,0 +1,32 @@
+#total {
+	margin: 0px;
+	padding: 0px;
+	height: 150px;
+	width: 400px;
+	border: none;	
+}
+.ip {
+	height: 20px;
+	width: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	color: #000;
+	border: 1px solid #666;
+	
+}
+#total table tr td #error_message {
+	height: 20px;
+	width: 400px;
+	margin: 0px;
+	padding: 0px;
+	display: none;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	color: #F00;
+}
+.button{
+	cursor: pointer;
+}

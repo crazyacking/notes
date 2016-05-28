@@ -1,0 +1,91 @@
+.curtain{
+
+	width:561px;
+
+	margin: 0px;
+
+	padding: 0px;
+
+	float:left;
+
+}
+
+.curtain_content{
+
+	margin: 0px;
+
+	padding: 0px;
+
+	float: left;
+
+}
+
+.curtain_content img {
+
+	margin: 0px;
+
+	padding: 0px;
+
+	float: left;
+
+}
+
+
+
+
+
+#slidenum {
+
+	Z-INDEX: 30; RIGHT: 1px; POSITION: absolute; TOP: 242px;
+
+}
+
+#slidenum .slideNumber {
+
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+
+}
+
+#slidenum .slideNumber LI {
+
+	BORDER-RIGHT: #c3cd91 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #c3cd91 1px solid; DISPLAY: inline; PADDING-LEFT: 0px; FONT-SIZE: 14px; BACKGROUND: #fff; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 2px 7px 0px 0px; OVERFLOW: hidden; BORDER-LEFT: #c3cd91 1px solid; WIDTH: 12px; CURSOR: hand; COLOR: #002abf; LINE-HEIGHT: 12px; PADDING-TOP: 0px; BORDER-BOTTOM: #c3cd91 1px solid; FONT-FAMILY: arial; HEIGHT: 12px; TEXT-ALIGN: center
+
+}
+
+#slidenum .slideNumber LI.curSlideNumber {\
+
+	BORDER-RIGHT: #9aa459 1px solid; BORDER-TOP: #9aa459 1px solid; PADDING-LEFT: 0px; BACKGROUND: #c3cd91; BORDER-LEFT: #9aa459 1px solid; COLOR: #000; BORDER-BOTTOM: #9aa459 1px solid
+
+}
+
+
+#slidenum1 .slideNumber LI.curSlideNumber {\
+
+	BORDER-RIGHT: #9aa459 1px solid; BORDER-TOP: #9aa459 1px solid; PADDING-LEFT: 0px; BACKGROUND: #c3cd91; BORDER-LEFT: #9aa459 1px solid; COLOR: #000; BORDER-BOTTOM: #9aa459 1px solid
+
+}
+
+.slidecontainer {
+
+	POSITION: relative; HEIGHT: 1px
+
+}
+
+.slideimages {
+
+	MARGIN-TOP: 0px
+
+}
+
+.slideimages IMG {
+
+	BORDER-TOP-WIDTH: 0px; DISPLAY: none; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+
+}
+
+.slideimages A {
+
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+
+}
+
